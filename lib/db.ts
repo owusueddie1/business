@@ -1,4 +1,4 @@
-import { Pool } from 'pg';
+import { Pool, QueryResultRow } from 'pg';
 
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) {
@@ -23,6 +23,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const db = process.env.NODE_ENV === 'production' ? pool : global.__neonPool__ || pool;
 
-export async function query<T>(text: string, params: unknown[] = []) {
+export async function query<T extends QueryResultRow>(text: string, params: unknown[] = []) {
   return db.query<T>(text, params);
 }

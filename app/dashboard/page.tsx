@@ -28,7 +28,11 @@ export default async function DashboardPage() {
     session.user.id,
   ]);
 
-  const reports = reportsResult.rows ?? [];
+  const reports = (reportsResult.rows ?? []) as {
+    id: string;
+    healthscore: number;
+    createdat: string;
+  }[];
 
   const reportsForClient = reports.map((r) => ({
     ...r,
@@ -48,7 +52,7 @@ export default async function DashboardPage() {
             <p>Welcome back, {user?.name ?? 'Executive'}.</p>
             <p>
               Latest analysis:{' '}
-              {reports[0]?.createdAt ? new Date(reports[0].createdAt).toISOString().slice(0, 10) : 'No reports yet'}
+              {reportsForClient[0]?.createdAt ? new Date(reportsForClient[0].createdAt).toISOString().slice(0, 10) : 'No reports yet'}
             </p>
           </div>
         </header>
