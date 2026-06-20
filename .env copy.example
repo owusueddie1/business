@@ -1,0 +1,14 @@
+DATABASE_URL=postgresql://user:password@localhost:5432/aura
+NEXTAUTH_SECRET=replace-with-a-secure-secret
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GEMINI_API_KEY=your-gemini-key
+GROQ_API_KEY=your-groq-key
+ANTHROPIC_API_KEY=your-anthropic-key
+LEMONSQUEEZY_API_KEY=your-lemonsqueezy-key
+TWILIO_SID=your-twilio-sid
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Supabase (optional, used by Supabase adapter)
+SUPABASE_URL=https://your-supabase-url
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
